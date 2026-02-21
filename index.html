@@ -47,28 +47,28 @@
             text-decoration: underline; cursor: pointer; font-size: 0.9rem; 
         }
 
-        /* Navigation Responsive */
+        /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: var(--white); position: fixed;
+            padding: 20px 5%; background: var(--white); position: fixed;
             width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--primary); cursor: pointer; }
         .nav-links { display: flex; list-style: none; gap: 20px; }
-        .nav-links li { cursor: pointer; font-weight: 500; transition: 0.3s; font-size: 0.9rem; white-space: nowrap;}
+        .nav-links li { cursor: pointer; font-weight: 500; transition: 0.3s; font-size: 0.9rem; }
         .nav-links li:hover { color: var(--clay); }
         .nav-actions { display: flex; gap: 10px; align-items: center; }
 
         /* View Management */
         .page-view { display: none; padding-top: 100px; min-height: 100vh; animation: fadeIn 0.5s ease; }
-        .active-view { display: block; }
+        .active-view { block: block; display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Hero Responsive */
+        /* Hero */
         .hero { 
-            min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&q=80') center/cover;
-            color: white; margin-top: -100px; padding: 120px 20px 40px;
+            color: white; margin-top: -100px; padding: 0 20px;
         }
 
         .thought-banner {
@@ -78,30 +78,35 @@
             border-radius: 50px;
             margin-top: 20px;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            max-width: 90%;
+            max-width: 80%;
             font-style: italic;
-            font-size: 0.9rem;
         }
 
         /* Reusable Components */
-        .container { padding: 40px 5%; max-width: 1200px; margin: auto; }
-        .btn { background: var(--clay); color: white; padding: 10px 20px; border: none; border-radius: 50px; cursor: pointer; transition: 0.3s; font-weight: 600; text-decoration: none; display: inline-block; font-size: 0.85rem; border: none;}
+        .container { padding: 50px 8%; max-width: 1200px; margin: auto; }
+        .btn { background: var(--clay); color: white; padding: 10px 25px; border: none; border-radius: 50px; cursor: pointer; transition: 0.3s; font-weight: 600; text-decoration: none; display: inline-block; font-size: 0.9rem;}
         .btn:hover { background: var(--primary); transform: translateY(-2px); }
         .btn-outline { background: transparent; border: 2px solid var(--danger); color: var(--danger); }
         .btn-outline:hover { background: var(--danger); color: white; }
         .btn-success { background: var(--success); color: white; margin-top: 10px; width: 100%; }
         
-        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 20px; display: flex; flex-direction: column; justify-content: space-between;}
+        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 20px; display: flex; flex-direction: column; justify-content: space-between;}
 
-        /* Medicine Store */
+        /* Medicine Store - Standard 2D Style */
         .medicine-card {
-            background: white; padding: 20px; border-radius: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(0,0,0,0.05);
             animation: cardEntrance 0.7s ease backwards;
         }
-        @keyframes cardEntrance { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .medicine-card:hover {
             transform: translateY(-5px);
@@ -110,46 +115,40 @@
         }
 
         .med-icon-placeholder {
-            width: 100%; height: 100px; background: var(--sand);
-            border-radius: 15px; margin-bottom: 15px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2.5rem; color: var(--primary); opacity: 0.7;
+            width: 100%;
+            height: 120px;
+            background: var(--sand);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.7;
         }
 
         /* Grid Layouts */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .img-box { width: 100%; height: 200px; border-radius: 15px; margin-bottom: 15px; object-fit: cover; border: 1px solid #eee; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .img-box { width: 100%; height: 220px; border-radius: 15px; margin-bottom: 15px; object-fit: cover; border: 1px solid #eee; }
 
-        /* Clock Widget Responsive */
-        .clock-widget { 
-            background: var(--primary); color: white; padding: 30px; border-radius: 30px; 
-            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
-        }
+        /* Clock Widget */
+        .clock-widget { background: var(--primary); color: white; padding: 40px; border-radius: 30px; display: flex; align-items: center; justify-content: space-between; }
 
-        footer { background: var(--primary); color: white; text-align: center; padding: 40px 20px; margin-top: 50px; font-size: 0.8rem; }
+        footer { background: var(--primary); color: white; text-align: center; padding: 40px; margin-top: 50px; }
         
-        .exercise-tag, .price-tag { background: var(--accent); color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; margin-bottom: 10px; display: inline-block; }
-        .price-tag { background: var(--primary); color: white; font-size: 0.9rem; }
+        /* Badges */
+        .exercise-tag, .price-tag { background: var(--accent); color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; display: inline-block; }
+        .price-tag { background: var(--primary); color: white; font-size: 1rem; }
 
-        .cart-status { position: relative; cursor: pointer; font-size: 1.2rem; }
-        .cart-count { position: absolute; top: -8px; right: -10px; background: var(--danger); color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.65rem; }
+        /* Cart UI */
+        .cart-status { position: relative; cursor: pointer; }
+        .cart-count { position: absolute; top: -10px; right: -10px; background: var(--danger); color: white; border-radius: 50%; padding: 2px 7px; font-size: 0.7rem; }
 
-        .payment-option { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 0.85rem; cursor: pointer; }
-
-        /* MOBILE ADJUSTMENTS */
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 15px; padding: 15px; }
-            .nav-links { gap: 10px; overflow-x: auto; width: 100%; padding-bottom: 5px; justify-content: flex-start; }
-            .nav-links li { font-size: 0.8rem; }
-            .nav-actions { width: 100%; justify-content: space-between; }
-            .hero h1 { font-size: 2rem !important; }
-            .hero p { font-size: 0.9rem; }
-            .clock-widget { text-align: center; justify-content: center; }
-            .clock-widget div { max-width: 100% !important; }
-            .clock-widget img { width: 80px; }
-            .page-view { padding-top: 160px; }
-            .btn { padding: 8px 15px; font-size: 0.8rem; }
-        }
+        /* Payment Selection Style */
+        .payment-methods { margin: 15px 0; text-align: left; }
+        .payment-option { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 0.9rem; cursor: pointer; }
+        .payment-option input { cursor: pointer; }
     </style>
 </head>
 <body>
@@ -174,7 +173,7 @@
         <ul class="nav-links">
             <li onclick="showPage('home')">Home</li>
             <li onclick="showPage('search-engine')">Medical Finder</li>
-            <li onclick="showPage('clock')">Clock</li>
+            <li onclick="showPage('clock')">Ayurvedic Clock</li>
             <li onclick="showPage('lifestyle')">Lifestyle</li>
             <li onclick="showPage('marketplace')" style="color: var(--clay); font-weight: bold;">Aushadh Shala</li>
             <li onclick="showPage('exercises')">Exercises</li>
@@ -239,7 +238,7 @@
                     <label class="payment-option"><input type="radio" name="payMethod" value="Card"> Debit / Credit Card</label>
                 </div>
 
-                <div style="display:flex; justify-content: space-between; align-items: center; margin-top: 15px; flex-wrap: wrap; gap: 10px;">
+                <div style="display:flex; justify-content: space-between; align-items: center; margin-top: 15px;">
                     <strong id="cartTotal">Total: ₹0</strong>
                     <button class="btn" onclick="checkout()">Complete Order</button>
                 </div>
@@ -254,7 +253,7 @@
             <div class="card">
                 <h2 style="font-family: 'Playfair Display'; text-align: center; margin-bottom: 20px;">Patient Profile</h2>
                 <div style="text-align: center; margin-bottom: 20px;">
-                    <div style="width: 80px; height: 80px; background: var(--sand); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto;">👤</div>
+                    <div style="width: 100px; height: 100px; background: var(--sand); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin: 0 auto;">👤</div>
                 </div>
                 <label>Full Name</label>
                 <input type="text" id="profName" class="profile-input" placeholder="Enter your name">
@@ -267,7 +266,7 @@
                 
                 <button class="btn btn-success" onclick="saveProfile()" style="margin-top: 20px;">Save Profile Information</button>
                 <hr style="margin: 20px 0; opacity: 0.2;">
-                <button class="btn btn-outline" onclick="handleLogout()" style="width: 100%;">Logout</button>
+                <button class="btn btn-outline" onclick="handleLogout()" style="width: 100%;">Logout from Repository</button>
             </div>
         </div>
     </div>
@@ -275,9 +274,9 @@
     <div id="search-engine" class="page-view">
         <div class="container">
             <h2 style="text-align: center; font-family: 'Playfair Display';">Clinical Symptom Engine</h2>
-            <div style="position: relative; width: 100%; max-width: 800px; margin: 20px auto; display: flex; gap: 10px;">
-                <input type="text" id="medicalSearch" style="flex: 1; padding: 15px 20px; border-radius: 50px; border: 2px solid var(--primary); font-size: 1rem; outline: none;" placeholder="Search (Fever, Stress, Cold)...">
-                <button class="btn" onclick="performMedicalSearch()">Analyze</button>
+            <div style="position: relative; width: 100%; max-width: 800px; margin: 20px auto;">
+                <input type="text" id="medicalSearch" style="width: 100%; padding: 20px 30px; border-radius: 50px; border: 2px solid var(--primary); font-size: 1.1rem; outline: none;" placeholder="Search (e.g. Fever, Stress, Thyroid, Cold, Anxiety)...">
+                <button class="btn" onclick="performMedicalSearch()" style="position: absolute; right: 10px; top: 10px;">Analyze</button>
             </div>
             <div id="medicalResult" style="display: none; margin-top: 40px;">
                 <div class="card" style="border-left: 10px solid var(--clay);">
@@ -307,26 +306,26 @@
     <div id="lifestyle" class="page-view">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 20px; font-family: 'Playfair Display';">The Pillar of Health: Svasthavritta</h2>
-            <p style="text-align: center; margin-bottom: 40px;">"When diet is correct, medicine is of no need."</p>
+            <p style="text-align: center; margin-bottom: 40px;">"When diet is wrong, medicine is of no use. When diet is correct, medicine is of no need."</p>
             <div class="grid">
                 <div class="card" style="background: var(--primary); color: white;">
                     <h3>🥗 Satvic Diet List</h3>
-                    <ul style="list-style: none; margin-top: 15px; line-height: 2; font-size: 0.9rem;">
-                        <li>✅ Fresh Seasonal Fruits</li>
-                        <li>✅ Organic Ghee</li>
-                        <li>✅ Sprouted Grains</li>
-                        <li>✅ Warm, Cooked Veggies</li>
-                        <li>❌ Avoid: White Sugar, Cold Drinks</li>
+                    <ul style="list-style: none; margin-top: 15px; line-height: 2;">
+                        <li>✅ Fresh Seasonal Fruits & Berries</li>
+                        <li>✅ Organic Ghee (Clarified Butter)</li>
+                        <li>✅ Sprouted Grains & Moong Dal</li>
+                        <li>✅ Warm, Cooked Vegetables</li>
+                        <li>❌ Avoid: White Sugar, Heavy Dairy, Cold Drinks</li>
                     </ul>
                 </div>
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=400" class="img-box">
-                    <h3>Abhyanga</h3>
+                    <h3>Abhyanga (Self-Massage)</h3>
                     <p>Daily oil massage to improve circulation and calm the nervous system.</p>
                 </div>
                 <div class="card">
                     <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=400" class="img-box">
-                    <h3>Dhyana</h3>
+                    <h3>Dhyana (Meditation)</h3>
                     <p>Mindful stillness to balance the Sattva Guna and reduce mental toxins.</p>
                 </div>
             </div>
@@ -335,19 +334,19 @@
 
     <div id="clock" class="page-view">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 30px; font-family: 'Playfair Display';">Dinacharya: Natural Rhythm</h2>
+            <h2 style="text-align: center; margin-bottom: 30px; font-family: 'Playfair Display';">Dinacharya: The Natural Rhythm</h2>
             <div class="clock-widget">
                 <div style="max-width: 60%;">
                     <h1 id="clockTime">00:00</h1>
                     <h2 id="clockPhase" style="color: var(--accent);">Vata Phase</h2>
-                    <p id="clockAdvice" style="margin-top: 15px; font-size: 1rem;">Loading biological data...</p>
+                    <p id="clockAdvice" style="margin-top: 15px; font-size: 1.1rem;">Loading biological data...</p>
                 </div>
-                <img src="https://cdn-icons-png.flaticon.com/512/2693/2693671.png" style="width: 100px; filter: invert(1);">
+                <img src="https://cdn-icons-png.flaticon.com/512/2693/2693671.png" style="width: 150px; filter: invert(1);">
             </div>
             <div class="grid" style="margin-top: 30px;">
                 <div class="card"><strong>6 AM - 10 AM (Kapha)</strong><p>Heaviness and stability. Best for exercise.</p></div>
-                <div class="card"><strong>10 AM - 2 PM (Pitta)</strong><p>Peak digestive fire. Time for main meal.</p></div>
-                <div class="card"><strong>2 PM - 6 PM (Vata)</strong><p>Lightness and movement. Best for creativity.</p></div>
+                <div class="card"><strong>10 AM - 2 PM (Pitta)</strong><p>Peak digestive fire. Time for the main meal.</p></div>
+                <div class="card"><strong>2 PM - 6 PM (Vata)</strong><p>Lightness and movement. Best for creative tasks.</p></div>
             </div>
         </div>
     </div>
@@ -355,7 +354,7 @@
     <div id="exercises" class="page-view">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 10px; font-family: 'Playfair Display';">Clinical Vyayama</h2>
-            <p style="text-align: center; margin-bottom: 40px;">10 Essential Exercises for Dosha Balance</p>
+            <p style="text-align: center; margin-bottom: 40px;">10 Essential Ayurvedic Exercises for Dosha Balance</p>
             <div class="grid">
                 <div class="card"><span class="exercise-tag">Respiratory</span><h3>Surya Namaskar</h3><p>Ignites Agni and improves flexibility.</p></div>
                 <div class="card"><span class="exercise-tag">Circulation</span><h3>Tadasana</h3><p>Grounds Vata and improves posture.</p></div>
@@ -407,6 +406,7 @@
             window.scrollTo(0,0);
         }
 
+        // Profile Logic
         function saveProfile() {
             const data = {
                 name: document.getElementById('profName').value,
@@ -427,31 +427,39 @@
             }
         }
 
-        function handleConsult(e) {
-            e.preventDefault();
-            alert("Consultancy Appointment Booked! A BAMS doctor will review your history shortly.");
-        }
-
+        // MEDICINE DATA
         const medicines = [
             { id: 1, n: "Neem & Turmeric Face Wash", p: 250, c: "Skin Care", icon: "🌿" },
-            { id: 2, n: "Kumkumadi Tailam", p: 850, c: "Skin Care", icon: "✨" },
+            { id: 2, n: "Kumkumadi Tailam (Glow Oil)", p: 850, c: "Skin Care", icon: "✨" },
             { id: 3, n: "Sandalwood Detan Pack", p: 320, c: "Skin Care", icon: "🪵" },
             { id: 4, n: "Aloe Vera Healing Gel", p: 180, c: "Skin Care", icon: "🌱" },
-            { id: 11, n: "Bhringraj Oil", p: 450, c: "Hair Care", icon: "💆" },
+            { id: 5, n: "Nalpamaradi Brightening Oil", p: 490, c: "Skin Care", icon: "☀️" },
+            { id: 6, n: "Manjistha Blood Purifier", p: 275, c: "Skin Care", icon: "🩸" },
+            { id: 7, n: "Rose Water Facial Mist", p: 150, c: "Skin Care", icon: "🌹" },
+            { id: 8, n: "Khadira Psoriasis Balm", p: 395, c: "Skin Care", icon: "🥣" },
+            { id: 9, n: "Eladi Hydrating Lotion", p: 420, c: "Skin Care", icon: "💧" },
+            { id: 10, n: "Ubtan Body Scrub", p: 290, c: "Skin Care", icon: "🧴" },
+            { id: 11, n: "Bhringraj Revitalizing Oil", p: 450, c: "Hair Care", icon: "💆" },
+            { id: 12, n: "Shikakai Natural Shampoo", p: 310, c: "Hair Care", icon: "🚿" },
+            { id: 13, n: "Brahmi Hair Growth Tonic", p: 540, c: "Hair Care", icon: "🧬" },
+            { id: 14, n: "Neem Anti-Dandruff Mask", p: 380, c: "Hair Care", icon: "🍃" },
+            { id: 15, n: "Amla Hair Conditioner", p: 260, c: "Hair Care", icon: "🥝" },
             { id: 16, n: "Maha Sudarshan Vati", p: 210, c: "Fever Relief", icon: "💊" },
             { id: 17, n: "Sitopaladi Churna", p: 185, c: "Respiratory", icon: "🌬️" },
-            { id: 18, n: "Ashwagandha", p: 480, c: "Mental Health", icon: "🧘" }
+            { id: 18, n: "Ashwagandha", p: 480, c: "Mental Health", icon: "🧘" },
+            { id: 19, n: "Tulsi Cough Syrup", p: 140, c: "Cold/Cough", icon: "🥄" },
+            { id: 20, n: "Brahmi Vati", p: 350, c: "Anxiety Relief", icon: "🧠" }
         ];
 
         let cart = [];
 
         function renderMarketplace() {
             const grid = document.getElementById('medicineGrid');
-            grid.innerHTML = medicines.map((med) => `
+            grid.innerHTML = medicines.map((med, index) => `
                 <div class="medicine-card">
                     <div class="med-icon-placeholder">${med.icon}</div>
                     <span class="exercise-tag">${med.c}</span>
-                    <h3 style="font-size:1rem; margin-bottom: 10px;">${med.n}</h3>
+                    <h3 style="font-size:1.1rem; margin-bottom: 10px;">${med.n}</h3>
                     <div class="price-tag">₹${med.p}</div>
                     <button class="btn btn-success" onclick="addToCart(${med.id})">Add to Cart</button>
                 </div>
